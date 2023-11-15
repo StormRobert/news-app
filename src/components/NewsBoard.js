@@ -1,15 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 function NewsBoard() {
     const [articles, setArticles] = useState([]);
 
     useEffect(() => {
-      first
-    
-      return () => {
-        second
-      }
-    }, [third])
+        const apiKey = `pub_32928ca1fdc2fdf4407a760abf3535c057454`
+      let url = ` https://newsdata.io/api/1/news?apikey= ${apiKey} &country=ke&language=en&category=business,health,politics,top,world `
+      fetch(url).then(res=> res.json())
+      .then((data) => setArticles(data.articles))
+    }, [])
     
   return (
     <div>
