@@ -6,7 +6,7 @@ function NewsBoard() {
 
     useEffect(() => {
         const apiKey = `pub_32928ca1fdc2fdf4407a760abf3535c057454`
-      let url = ` https://newsdata.io/api/1/news?country=ke&category=top&apikey=${apiKey}`
+      let url = ` https://newsdata.io/api/1/news?apikey=${apiKey}&q=kenya%20news&country=ke&language=en&category=business,politics,top,world `
       fetch(url).then(res=> res.json())
       .then((data) => setArticles(data.results))
       .catch((error) => console.error('Error fetching articles:', error));
